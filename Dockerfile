@@ -1,6 +1,9 @@
 FROM ubuntu:18.04
 MAINTAINER ObukhovAV "https://github.com/ObukhovAV"
 
+ENV TZ=Europe/Moscow
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apt-get update
 RUN apt-get install -y nginx
 RUN apt-get install -y supervisor
